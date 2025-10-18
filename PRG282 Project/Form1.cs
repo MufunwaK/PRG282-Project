@@ -70,7 +70,27 @@ namespace PRG282_Project
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            
+            if (dgvSuperhero.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a superhero to delete.");
+                return;
+            }
+
+            int selectedID = Convert.ToInt32(dgvSuperhero.SelectedRows[0].Cells["ID"].Value);
+
+            DialogResult confirm = MessageBox.Show(
+                "Are you sure you want to delete this hero?",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (confirm == DialogResult.Yes)
+            {
+                FileHandler.DeleteHero(selectedID);
+                RefreshDataGrid();
+                MessageBox.Show("Hero deleted successfully!");
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -85,6 +105,78 @@ namespace PRG282_Project
             if (result == DialogResult.Yes)
             {
                 Application.Exit();
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtID.Text) ||
+                    string.IsNullOrWhiteSpace(txtName.Text) ||
+                    string.IsNullOrWhiteSpace(txtAge.Text) ||
+                    string.IsNullOrWhiteSpace(txtSuperpower.Text) ||
+                    string.IsNullOrWhiteSpace(txtScore.Text))
+                {
+                    MessageBox.Show("Please fill in all fields before updating.");
+                    return;
+                }
+
+                int id = int.Parse(txtID.Text);
+                string name = txtName.Text.Trim();
+                int age = int.Parse(txtAge.Text);
+                string superpower = txtSuperpower.Text.Trim();
+                int examScore = int.Parse(txtScore.Text);
+
+                string rank = HeroManager.GetRank(examScore);
+                string threat = HeroManager.GetThreatLevel(rank);
+
+                Hero updatedHero = new Hero
+                {
+                    ID = id,
+                    Name = name,
+                    Age = age,
+                    Superpower = superpower,
+                    ExamScore = examScore,
+                    Rank = rank,
+                    ThreatLevel = threat
+                };
+
+                // Use the returned value to decide what to show
+                bool success = FileHandler.UpdateHero(updatedHero);
+
+                if (success)
+                {
+                    RefreshDataGrid();
+                    MessageBox.Show("Hero updated successfully!");
+                }
+                // else: do nothing — the method already showed "not found"
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please enter valid numeric values for ID, Age, and Exam Score.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating hero: " + ex.Message);
+            }
+        
+        }
+
+
+    
+
+        private void dgvSuperhero_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvSuperhero.Rows[e.RowIndex];
+
+                txtID.Text = row.Cells["ID"].Value.ToString();
+                txtName.Text = row.Cells["Name"].Value.ToString();
+                txtAge.Text = row.Cells["Age"].Value.ToString();
+                txtSuperpower.Text = row.Cells["Superpower"].Value.ToString();
+                txtScore.Text = row.Cells["ExamScore"].Value.ToString();
             }
         }
     }

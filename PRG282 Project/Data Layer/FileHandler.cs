@@ -70,6 +70,78 @@ namespace PRG282_Project.Data_Layer
             return heroes;
         }
 
+        
+
+        // have all heroes (overwrite file)
+        private static void SaveAllHeroes(List<Hero> heroes)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(filePath, false)) // false = overwrite
+                {
+                    foreach (var hero in heroes)
+                    {
+                        writer.WriteLine($"{hero.ID},{hero.Name},{hero.Age},{hero.Superpower},{hero.ExamScore},{hero.Rank},{hero.ThreatLevel}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving heroes: " + ex.Message);
+            }
+        }
+
+        // Delete a hero by ID
+        public static void DeleteHero(int heroID)
+        {
+            try
+            {
+                var heroes = LoadHeroes();
+                var updatedHeroes = heroes.Where(h => h.ID != heroID).ToList();
+                SaveAllHeroes(updatedHeroes);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting hero: " + ex.Message);
+            }
+        }
+
+        //Update a hero record
+        public static bool UpdateHero(Hero updatedHero)
+        {
+            try
+            {
+                List<Hero> heroes = LoadHeroes();
+
+                bool found = false;
+                for (int i = 0; i < heroes.Count; i++)
+                {
+                    if (heroes[i].ID == updatedHero.ID)
+                    {
+                        heroes[i] = updatedHero; // replace the record
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (found)
+                {
+                    SaveAllHeroes(heroes);
+                    return true; // update succeeded
+                }
+                else
+                {
+                    MessageBox.Show("Hero not found in the file!");
+                    return false; // update failed
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating hero: " + ex.Message);
+                return false;
+            }
+        }
+
     }
 }
 
