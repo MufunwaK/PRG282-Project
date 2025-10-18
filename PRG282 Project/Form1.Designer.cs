@@ -45,6 +45,14 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtNumOfHeroes = new System.Windows.Forms.TextBox();
+            this.txtAvgAge = new System.Windows.Forms.TextBox();
+            this.txtAvgExamScore = new System.Windows.Forms.TextBox();
+            this.txtHeroPerRank = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuperhero)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,9 +60,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(224, 38);
+            this.label1.Location = new System.Drawing.Point(514, 29);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(538, 32);
+            this.label1.Size = new System.Drawing.Size(463, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "HeroTrack - Academy Superhero Records";
             // 
@@ -62,9 +71,10 @@
             // 
             this.lblID.AutoSize = true;
             this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(138, 137);
+            this.lblID.Location = new System.Drawing.Point(92, 89);
+            this.lblID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(90, 25);
+            this.lblID.Size = new System.Drawing.Size(73, 20);
             this.lblID.TabIndex = 1;
             this.lblID.Text = "Hero ID:";
             // 
@@ -72,9 +82,10 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(138, 217);
+            this.lblName.Location = new System.Drawing.Point(92, 141);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(74, 25);
+            this.lblName.Size = new System.Drawing.Size(58, 20);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Name:";
             // 
@@ -82,9 +93,10 @@
             // 
             this.lblAge.AutoSize = true;
             this.lblAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAge.Location = new System.Drawing.Point(138, 302);
+            this.lblAge.Location = new System.Drawing.Point(92, 196);
+            this.lblAge.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAge.Name = "lblAge";
-            this.lblAge.Size = new System.Drawing.Size(56, 25);
+            this.lblAge.Size = new System.Drawing.Size(43, 20);
             this.lblAge.TabIndex = 3;
             this.lblAge.Text = "Age:";
             // 
@@ -92,9 +104,10 @@
             // 
             this.lblSuperpower.AutoSize = true;
             this.lblSuperpower.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSuperpower.Location = new System.Drawing.Point(138, 380);
+            this.lblSuperpower.Location = new System.Drawing.Point(71, 247);
+            this.lblSuperpower.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSuperpower.Name = "lblSuperpower";
-            this.lblSuperpower.Size = new System.Drawing.Size(133, 25);
+            this.lblSuperpower.Size = new System.Drawing.Size(103, 20);
             this.lblSuperpower.TabIndex = 5;
             this.lblSuperpower.Text = "Superpower:";
             // 
@@ -102,64 +115,72 @@
             // 
             this.lblScore.AutoSize = true;
             this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScore.Location = new System.Drawing.Point(140, 468);
+            this.lblScore.Location = new System.Drawing.Point(71, 304);
+            this.lblScore.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(134, 25);
+            this.lblScore.Size = new System.Drawing.Size(105, 20);
             this.lblScore.TabIndex = 6;
             this.lblScore.Text = "Exam Score:";
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(270, 137);
+            this.txtID.Location = new System.Drawing.Point(180, 89);
+            this.txtID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(334, 26);
+            this.txtID.Size = new System.Drawing.Size(224, 20);
             this.txtID.TabIndex = 7;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(270, 215);
+            this.txtName.Location = new System.Drawing.Point(180, 140);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(334, 26);
+            this.txtName.Size = new System.Drawing.Size(224, 20);
             this.txtName.TabIndex = 8;
             // 
             // txtAge
             // 
-            this.txtAge.Location = new System.Drawing.Point(270, 298);
+            this.txtAge.Location = new System.Drawing.Point(180, 194);
+            this.txtAge.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(334, 26);
+            this.txtAge.Size = new System.Drawing.Size(224, 20);
             this.txtAge.TabIndex = 9;
             // 
             // txtSuperpower
             // 
-            this.txtSuperpower.Location = new System.Drawing.Point(270, 380);
+            this.txtSuperpower.Location = new System.Drawing.Point(180, 247);
+            this.txtSuperpower.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSuperpower.Name = "txtSuperpower";
-            this.txtSuperpower.Size = new System.Drawing.Size(334, 26);
+            this.txtSuperpower.Size = new System.Drawing.Size(224, 20);
             this.txtSuperpower.TabIndex = 10;
             // 
             // txtScore
             // 
-            this.txtScore.Location = new System.Drawing.Point(270, 465);
+            this.txtScore.Location = new System.Drawing.Point(180, 304);
+            this.txtScore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtScore.Name = "txtScore";
-            this.txtScore.Size = new System.Drawing.Size(334, 26);
+            this.txtScore.Size = new System.Drawing.Size(224, 20);
             this.txtScore.TabIndex = 11;
             // 
             // dgvSuperhero
             // 
             this.dgvSuperhero.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSuperhero.Location = new System.Drawing.Point(663, 137);
+            this.dgvSuperhero.Location = new System.Drawing.Point(442, 89);
+            this.dgvSuperhero.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvSuperhero.Name = "dgvSuperhero";
             this.dgvSuperhero.RowHeadersWidth = 51;
             this.dgvSuperhero.RowTemplate.Height = 24;
-            this.dgvSuperhero.Size = new System.Drawing.Size(614, 282);
+            this.dgvSuperhero.Size = new System.Drawing.Size(409, 183);
             this.dgvSuperhero.TabIndex = 12;
             this.dgvSuperhero.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSuperhero_CellContentClick);
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(663, 468);
+            this.btnAdd.Location = new System.Drawing.Point(442, 304);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(168, 60);
+            this.btnAdd.Size = new System.Drawing.Size(93, 39);
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Add Superhero";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -168,9 +189,10 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(867, 468);
+            this.btnDelete.Location = new System.Drawing.Point(555, 304);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(168, 60);
+            this.btnDelete.Size = new System.Drawing.Size(90, 39);
             this.btnDelete.TabIndex = 14;
             this.btnDelete.Text = "Delete Superhero";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -179,9 +201,10 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(663, 546);
+            this.btnUpdate.Location = new System.Drawing.Point(658, 304);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(168, 52);
+            this.btnUpdate.Size = new System.Drawing.Size(97, 39);
             this.btnUpdate.TabIndex = 15;
             this.btnUpdate.Text = "Update Superhero";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -190,9 +213,10 @@
             // btnView
             // 
             this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnView.Location = new System.Drawing.Point(867, 546);
+            this.btnView.Location = new System.Drawing.Point(1073, 304);
+            this.btnView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(258, 52);
+            this.btnView.Size = new System.Drawing.Size(188, 51);
             this.btnView.TabIndex = 16;
             this.btnView.Text = "Summary Report";
             this.btnView.UseVisualStyleBackColor = true;
@@ -201,20 +225,95 @@
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(1062, 465);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExit.Location = new System.Drawing.Point(775, 302);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(159, 63);
+            this.btnExit.Size = new System.Drawing.Size(91, 41);
             this.btnExit.TabIndex = 17;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(969, 89);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(242, 20);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Total Number Of SuperHeroes:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(979, 138);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 20);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Average Age:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(979, 196);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(166, 20);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Average ExamScore:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(980, 257);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(143, 20);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Heroes Per Rank:";
+            // 
+            // txtNumOfHeroes
+            // 
+            this.txtNumOfHeroes.Location = new System.Drawing.Point(1217, 89);
+            this.txtNumOfHeroes.Name = "txtNumOfHeroes";
+            this.txtNumOfHeroes.Size = new System.Drawing.Size(187, 20);
+            this.txtNumOfHeroes.TabIndex = 22;
+            // 
+            // txtAvgAge
+            // 
+            this.txtAvgAge.Location = new System.Drawing.Point(1105, 138);
+            this.txtAvgAge.Name = "txtAvgAge";
+            this.txtAvgAge.Size = new System.Drawing.Size(208, 20);
+            this.txtAvgAge.TabIndex = 23;
+            // 
+            // txtAvgExamScore
+            // 
+            this.txtAvgExamScore.Location = new System.Drawing.Point(1166, 198);
+            this.txtAvgExamScore.Name = "txtAvgExamScore";
+            this.txtAvgExamScore.Size = new System.Drawing.Size(207, 20);
+            this.txtAvgExamScore.TabIndex = 24;
+            // 
+            // txtHeroPerRank
+            // 
+            this.txtHeroPerRank.Location = new System.Drawing.Point(1153, 257);
+            this.txtHeroPerRank.Name = "txtHeroPerRank";
+            this.txtHeroPerRank.Size = new System.Drawing.Size(206, 20);
+            this.txtHeroPerRank.TabIndex = 25;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 658);
+            this.ClientSize = new System.Drawing.Size(1478, 468);
+            this.Controls.Add(this.txtHeroPerRank);
+            this.Controls.Add(this.txtAvgExamScore);
+            this.Controls.Add(this.txtAvgAge);
+            this.Controls.Add(this.txtNumOfHeroes);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.btnUpdate);
@@ -232,6 +331,7 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -260,6 +360,14 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtNumOfHeroes;
+        private System.Windows.Forms.TextBox txtAvgAge;
+        private System.Windows.Forms.TextBox txtAvgExamScore;
+        private System.Windows.Forms.TextBox txtHeroPerRank;
     }
 }
 
