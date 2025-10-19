@@ -76,6 +76,37 @@ namespace PRG282_Project.Business_Logic_Layer
 
             return hero;
         }
+
+        //Generating the summary report
+        public static Dictionary<string, string> GenerateSummaryReport()
+        {
+            var heroes = FileHandler.LoadHeroes();
+            var summary = new Dictionary<string, string>();
+
+            if (heroes.Count == 0)
+            {
+               
+                summary["Average Exam Score"] = "N/A";
+                summary["Rank S"] = "0";
+                summary["Rank A"] = "0";
+                summary["Rank B"] = "0";
+                summary["Rank C"] = "0";
+            }
+            else
+            {
+
+                //calculating the total exam score of all the heroes
+                summary["AverageScore"] = heroes.Average(h => h.ExamScore).ToString("F2");
+                //calculating number of superheroes in each rank
+                summary["RankS"] = heroes.Count(h => h.Rank == "S").ToString();
+                summary["RankA"] = heroes.Count(h => h.Rank == "A").ToString();
+                summary["RankB"] = heroes.Count(h => h.Rank == "B").ToString();
+                summary["RankC"] = heroes.Count(h => h.Rank == "C").ToString();
+            }
+            //this calls on the updated method
+            FileHandler.GenerateSummaryReport(summary);
+            return summary;
+        }
     }
 
 }

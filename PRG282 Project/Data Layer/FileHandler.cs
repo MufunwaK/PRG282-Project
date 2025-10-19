@@ -14,6 +14,8 @@ namespace PRG282_Project.Data_Layer
     {
         // Path to the existing file
         private static string filePath = "superheroes.txt";
+        //path to the summary report generated
+        private static string summaryfile = "Summary.txt";
 
         // Save a hero to the text file
         public static void SaveHero(Hero hero)
@@ -141,6 +143,30 @@ namespace PRG282_Project.Data_Layer
                 return false;
             }
         }
+
+        public static void GenerateSummaryReport(Dictionary<string, string> summary)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(summaryfile, false))
+                {
+                    writer.WriteLine("Superhero Summary Report");
+                    writer.WriteLine(" ");
+                    foreach (var entry in summary)
+                    {
+                        writer.WriteLine($"{entry.Key}:  {entry.Value}");
+
+                    }
+                    writer.WriteLine($"This report was generated on: {DateTime.Now}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occured when saving the summary report: {ex.Message}");
+                throw;
+            }
+        }
+
 
     }
 }

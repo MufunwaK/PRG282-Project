@@ -14,6 +14,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PRG282_Project
 {
+
+   
     public partial class Form1 : Form
     {
         public Form1()
@@ -65,7 +67,16 @@ namespace PRG282_Project
 
         private void btnView_Click(object sender, EventArgs e)
         {
-          
+            //link the information from the summary.txt to the form
+            var summary = HeroManager.GenerateSummaryReport();
+
+            // Update the summaries and writes the information on the form
+           // txtNumOfHeroes.Text = summary["TotalHeroes"];
+           // txtAvgAge.Text = summary["AverageAge"];
+            txtAvgExamScore.Text = summary["AverageScore"];
+            txtHeroPerRank.Text = $"S: {summary["RankS"]}, A: {summary["RankA"]}, B: {summary["RankB"]}, C: {summary["RankC"]}";
+            MessageBox.Show("Summary report generated and saved to summary.txt!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
