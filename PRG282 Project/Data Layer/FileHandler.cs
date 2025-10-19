@@ -152,19 +152,23 @@ namespace PRG282_Project.Data_Layer
                 {
                     writer.WriteLine("Superhero Summary Report");
                     writer.WriteLine(" ");
-                    foreach (var entry in summary)
-                    {
-                        writer.WriteLine($"{entry.Key}:  {entry.Value}");
 
-                    }
-                    writer.WriteLine($"This report was generated on: {DateTime.Now}");
+                    writer.WriteLine($"Total Heroes: {summary["TotalHeroes"]}");
+                    writer.WriteLine($"Average Age: {summary["AverageAge"]}");
+                    writer.WriteLine($"Average Exam Score: {summary["AverageScore"]}");
+
+                    // Include Heroes per Rank
+                    writer.WriteLine($"Heroes per Rank: S: {summary["RankS"]}, A: {summary["RankA"]}, B: {summary["RankB"]}, C: {summary["RankC"]}");
+
+                    writer.WriteLine($"Report generated on: {DateTime.Now}");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error occured when saving the summary report: {ex.Message}");
+                MessageBox.Show($"Error occurred when saving the summary report: {ex.Message}");
                 throw;
             }
+        
         }
 
 

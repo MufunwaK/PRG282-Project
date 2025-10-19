@@ -71,10 +71,13 @@ namespace PRG282_Project
             var summary = HeroManager.GenerateSummaryReport();
 
             // Update the summaries and writes the information on the form
-           // txtNumOfHeroes.Text = summary["TotalHeroes"];
-           // txtAvgAge.Text = summary["AverageAge"];
+            // txtNumOfHeroes.Text = summary["TotalHeroes"];
+            // txtAvgAge.Text = summary["AverageAge"];
+            txtNumOfHeroes.Text = summary["TotalHeroes"];
+            txtAvgAge.Text = summary["AverageAge"];
             txtAvgExamScore.Text = summary["AverageScore"];
             txtHeroPerRank.Text = $"S: {summary["RankS"]}, A: {summary["RankA"]}, B: {summary["RankB"]}, C: {summary["RankC"]}";
+
             MessageBox.Show("Summary report generated and saved to summary.txt!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }

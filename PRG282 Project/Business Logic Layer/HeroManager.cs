@@ -27,25 +27,25 @@ namespace PRG282_Project.Business_Logic_Layer
 
 
 
-           // FileHandler.SaveHero(hero);
+            // FileHandler.SaveHero(hero);
         }
 
         // Calculate rank based on exam score
         public static string GetRank(int examScore)
         {
-            if (examScore >= 81) 
+            if (examScore >= 81)
                 return "S";
-            else if (examScore >= 61) 
+            else if (examScore >= 61)
                 return "A";
-            else if (examScore >= 41) 
+            else if (examScore >= 41)
                 return "B";
-            else 
+            else
                 return "C";
         }
 
         // Determine threat level based on rank
-       
-          public static string GetThreatLevel(string rank)
+
+        public static string GetThreatLevel(string rank)
         {
             if (rank == "S")
                 return "Catastrophic";
@@ -81,33 +81,34 @@ namespace PRG282_Project.Business_Logic_Layer
         public static Dictionary<string, string> GenerateSummaryReport()
         {
             var heroes = FileHandler.LoadHeroes();
-            var summary = new Dictionary<string, string>();
-
-            if (heroes.Count == 0)
+            var summary = new Dictionary<string, string>()
             {
-               
-                summary["Average Exam Score"] = "N/A";
-                summary["Rank S"] = "0";
-                summary["Rank A"] = "0";
-                summary["Rank B"] = "0";
-                summary["Rank C"] = "0";
-            }
-            else
-            {
+   { "TotalHeroes", "0" },
+        { "AverageAge", "N/A" },
+        { "AverageScore", "N/A" },
+        { "RankS", "0" },
+        { "RankA", "0" },
+        { "RankB", "0" },
+        { "RankC", "0" }
 
-                //calculating the total exam score of all the heroes
+        };
+
+            if (heroes.Count > 0)
+            {
+                summary["TotalHeroes"] = heroes.Count.ToString();
+                summary["AverageAge"] = heroes.Average(h => h.Age).ToString("F2");
                 summary["AverageScore"] = heroes.Average(h => h.ExamScore).ToString("F2");
-                //calculating number of superheroes in each rank
                 summary["RankS"] = heroes.Count(h => h.Rank == "S").ToString();
                 summary["RankA"] = heroes.Count(h => h.Rank == "A").ToString();
                 summary["RankB"] = heroes.Count(h => h.Rank == "B").ToString();
                 summary["RankC"] = heroes.Count(h => h.Rank == "C").ToString();
             }
-            //this calls on the updated method
+
+            // Save to file
             FileHandler.GenerateSummaryReport(summary);
             return summary;
         }
-    }
 
+    }
 }
 
