@@ -14,6 +14,7 @@ namespace PRG282_Project.Business_Logic_Layer
     internal class Hero
     {
         //Fields
+        // These store the data for each hero instance.
         private string threatLevel;
         private int examScore;
         private string name;
@@ -22,11 +23,13 @@ namespace PRG282_Project.Business_Logic_Layer
         private int iD;
         private int age;
 
+        //Default constructor
         public Hero()
         {
         }
 
         //Parameterized constructor
+        // Allows easy creation of a Hero with all fields pre-filled.
         public Hero(string name, string superpower, string rank, string threatLevel, int iD, int age, int examScore)
         {
             Name = name;
@@ -39,6 +42,7 @@ namespace PRG282_Project.Business_Logic_Layer
         }
 
         //Properties
+        // Encapsulate fields with getters and setters to control access to data.
         public string Name { get => name; set => name = value; }
         public string Superpower { get => superpower; set => superpower = value; }
         public string Rank { get => rank; set => rank = value; }

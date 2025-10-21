@@ -10,9 +10,11 @@ using PRG282_Project.Data_Layer;
 
 namespace PRG282_Project.Data_Layer
 {
+    // The FileHandler class handles all reading/writing to text files.
+    // It acts as the "data layer" of the program.
     internal class FileHandler
     {
-        // Path to the existing file
+        // Path to the existing file, stores hero data
         private static string filePath = "superheroes.txt";
         //path to the summary report generated
         private static string summaryfile = "Summary.txt";
@@ -47,6 +49,8 @@ namespace PRG282_Project.Data_Layer
                     foreach (string line in lines)
                     {
                         string[] parts = line.Split(',');
+
+                        // Ensure correct number of fields (7 total)
                         if (parts.Length == 7)
                         {
                             Hero hero = new Hero
@@ -72,9 +76,9 @@ namespace PRG282_Project.Data_Layer
             return heroes;
         }
 
-        
 
-        // have all heroes (overwrite file)
+
+        // Overwrite the entire hero file with a new list of heroes
         private static void SaveAllHeroes(List<Hero> heroes)
         {
             try
@@ -108,7 +112,7 @@ namespace PRG282_Project.Data_Layer
             }
         }
 
-        //Update a hero record
+        //Update an exixsting hero's information
         public static bool UpdateHero(Hero updatedHero)
         {
             try
@@ -116,11 +120,13 @@ namespace PRG282_Project.Data_Layer
                 List<Hero> heroes = LoadHeroes();
 
                 bool found = false;
+
+                //Search for a matchng ID
                 for (int i = 0; i < heroes.Count; i++)
                 {
                     if (heroes[i].ID == updatedHero.ID)
                     {
-                        heroes[i] = updatedHero; // replace the record
+                        heroes[i] = updatedHero; // replace old the record
                         found = true;
                         break;
                     }
@@ -144,6 +150,8 @@ namespace PRG282_Project.Data_Layer
             }
         }
 
+
+        // Write a summary report to a text file
         public static void GenerateSummaryReport(Dictionary<string, string> summary)
         {
             try

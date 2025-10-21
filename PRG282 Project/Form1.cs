@@ -22,11 +22,13 @@ namespace PRG282_Project
         {
             InitializeComponent();
 
+            // Load heroes into grid when form opens
             RefreshDataGrid();
         }
 
-    // --- RefreshDataGrid method ---
-    private void RefreshDataGrid()
+        // --- RefreshDataGrid method ---
+        // Reloads data from file into DataGridView
+        private void RefreshDataGrid()
         {
             var heroes = FileHandler.LoadHeroes(); // reads heroes from file
             dgvSuperhero.DataSource = null;             // reset the grid
@@ -38,10 +40,12 @@ namespace PRG282_Project
 
         }
 
+        //button for adding new hero 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
+                //collect input from textboxes
                 int heroID = int.Parse(txtID.Text);
                 string name = txtName.Text;
                 int age = int.Parse(txtAge.Text);
@@ -53,6 +57,7 @@ namespace PRG282_Project
                 HeroManager.AddHero(hero);
                 FileHandler.SaveHero(hero);
 
+                //Updates the DaraGridView
                 RefreshDataGrid();
 
             }
@@ -71,8 +76,7 @@ namespace PRG282_Project
             var summary = HeroManager.GenerateSummaryReport();
 
             // Update the summaries and writes the information on the form
-            // txtNumOfHeroes.Text = summary["TotalHeroes"];
-            // txtAvgAge.Text = summary["AverageAge"];
+           
             txtNumOfHeroes.Text = summary["TotalHeroes"];
             txtAvgAge.Text = summary["AverageAge"];
             txtAvgExamScore.Text = summary["AverageScore"];
@@ -90,8 +94,10 @@ namespace PRG282_Project
                 return;
             }
 
+            // Get selected hero ID from grid
             int selectedID = Convert.ToInt32(dgvSuperhero.SelectedRows[0].Cells["ID"].Value);
 
+            //Confirm with user before deleting
             DialogResult confirm = MessageBox.Show(
                 "Are you sure you want to delete this hero?",
                 "Confirm Delete",
@@ -126,6 +132,8 @@ namespace PRG282_Project
         {
             try
             {
+
+                //validate input fields
                 if (string.IsNullOrWhiteSpace(txtID.Text) ||
                     string.IsNullOrWhiteSpace(txtName.Text) ||
                     string.IsNullOrWhiteSpace(txtAge.Text) ||
@@ -136,15 +144,20 @@ namespace PRG282_Project
                     return;
                 }
 
+
+                // Read values from textboxes
                 int id = int.Parse(txtID.Text);
                 string name = txtName.Text.Trim();
                 int age = int.Parse(txtAge.Text);
                 string superpower = txtSuperpower.Text.Trim();
                 int examScore = int.Parse(txtScore.Text);
 
+                // Recalculate rank and threat level
                 string rank = HeroManager.GetRank(examScore);
                 string threat = HeroManager.GetThreatLevel(rank);
 
+
+                // Create updated hero object
                 Hero updatedHero = new Hero
                 {
                     ID = id,
@@ -178,8 +191,8 @@ namespace PRG282_Project
         }
 
 
-    
 
+        // When a user clicks on a row, load its details into textboxes
         private void dgvSuperhero_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)

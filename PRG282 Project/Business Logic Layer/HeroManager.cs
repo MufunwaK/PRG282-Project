@@ -9,10 +9,14 @@ using System.Threading.Tasks;
 
 namespace PRG282_Project.Business_Logic_Layer
 {
+    // The HeroManager class contains the business logic for managing hero data.
+    // It determines the hero’s rank, threat level, and generates summary reports.
     internal class HeroManager
     {
+        // Adds a new hero to the system
         public static void AddHero(Hero hero)
         {
+            // Automatically determine Rank and Threat Level based on score
             hero.Rank = GetRank(hero.ExamScore);
             hero.ThreatLevel = GetThreatLevel(hero.Rank);
 
@@ -60,7 +64,7 @@ namespace PRG282_Project.Business_Logic_Layer
         }
 
 
-        // Create a hero and set Rank & ThreatLevel
+        // Creates and returns a new Hero object with all details filled in
         public static Hero CreateHero(int heroID, string name, int age, string superpower, int examScore)
         {
             Hero hero = new Hero
@@ -77,12 +81,14 @@ namespace PRG282_Project.Business_Logic_Layer
             return hero;
         }
 
-        //Generating the summary report
+        // Generates a statistical summary report for all heroes
         public static Dictionary<string, string> GenerateSummaryReport()
         {
             var heroes = FileHandler.LoadHeroes();
             var summary = new Dictionary<string, string>()
             {
+               // If there are no heroes in the file
+
    { "TotalHeroes", "0" },
         { "AverageAge", "N/A" },
         { "AverageScore", "N/A" },
